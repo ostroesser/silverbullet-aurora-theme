@@ -270,9 +270,8 @@ body, #sb-root {
   background-image: linear-gradient(90deg, var(--au-accent), var(--au-accent-2));
   background-size: 44px 4px;
   background-repeat: no-repeat;
-  background-position: calc(var(--sb-indent, 0px)) 100%;
-  padding-bottom: 18px !important;
-  margin-bottom: 8px;
+  background-position: calc(var(--sb-indent, 0px)) calc(100% - 8px);
+  padding-bottom: 26px !important;
 }
 #sb-main .cm-editor .sb-line-h1 .sb-meta,
 #sb-main .cm-editor .sb-line-h2 .sb-meta,
@@ -412,14 +411,12 @@ body, #sb-root {
 #sb-main .cm-editor .sb-line-fenced-code:not(.sb-line-fenced-code + .sb-line-fenced-code) {
   border-top: 1px solid var(--au-border);
   border-radius: var(--au-radius) var(--au-radius) 0 0;
-  padding-top: 8px !important;
-  margin-top: 6px;
+  padding-top: 14px !important;
 }
 #sb-main .cm-editor .sb-line-fenced-code:not(:has(+ .sb-line-fenced-code)) {
   border-bottom: 1px solid var(--au-border);
   border-radius: 0 0 var(--au-radius) var(--au-radius);
-  padding-bottom: 8px !important;
-  margin-bottom: 6px;
+  padding-bottom: 14px !important;
 }
 #sb-main .cm-editor .sb-line-code-outside { color: var(--au-muted); }
 #sb-main .cm-editor .sb-code-info,
@@ -460,9 +457,8 @@ body, #sb-root {
 /* ───────────────────────── Horizontal rule ───────────────────────── */
 #sb-main .cm-editor .sb-line-hr {
   border-top: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--au-border) 20%, var(--au-accent-ring) 50%, var(--au-border) 80%, transparent);
-  margin: 1.4em 0 .4em;
+  padding: 1.4em 0 .4em;
+  background: linear-gradient(90deg, transparent, var(--au-border) 20%, var(--au-accent-ring) 50%, var(--au-border) 80%, transparent) no-repeat 0 1.4em / 100% 1px;
 }
 
 /* ───────────────────────── Page widgets (linked mentions, tasks…) ───────────────────────── */
