@@ -597,6 +597,14 @@ html[data-theme="dark"] .sb-segment-active { background: var(--au-border) !impor
 ::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--au-muted) 35%, transparent); border-radius: 999px; border: 3px solid transparent; background-clip: padding-box; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::selection { background: var(--editor-selection-background-color); }
+/* CodeMirror draws the selection behind the lines (z-index -1), so the card
+   backgrounds (code, quotes, headings) hide it. Draw it on top instead; the
+   colour is translucent so the text stays readable. */
+#sb-main .cm-editor .cm-selectionLayer { z-index: 1 !important; pointer-events: none; }
+#sb-main .cm-editor .cm-selectionBackground,
+#sb-main .cm-editor.cm-focused > .cm-scroller > .cm-selectionLayer .cm-selectionBackground {
+  background: var(--editor-selection-background-color) !important;
+}
 
 /* ───────────────────────── Small screens ───────────────────────── */
 @media (max-width: 600px) {
