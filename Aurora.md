@@ -381,14 +381,26 @@ body, #sb-root {
 /* ───────────────────────── Blockquote ───────────────────────── */
 #sb-main .cm-editor .sb-line-blockquote {
   --blockquote-bar: 3px;
-  background-image: linear-gradient(var(--au-accent), var(--au-accent-2));
-  background-size: 3px 100%;
-  background-repeat: no-repeat;
   background-color: color-mix(in srgb, var(--au-accent-soft) 45%, transparent);
   font-style: italic;
   font-size: 1.04em;
   padding-left: 22px !important;
   padding-right: 16px !important;
+}
+#sb-main .cm-editor .sb-line-blockquote:not(.sb-admonition) {
+  background-image: linear-gradient(var(--au-accent), var(--au-accent-2));
+  background-origin: padding-box;
+  background-position: 0 0;
+  background-size: 3px 100%;
+  background-repeat: no-repeat;
+}
+/* Core turns any quote opening with `**word**` or `**word:**` into an admonition,
+   which has its own left border instead of the bar. Only known types (note,
+   warning, ...) set a colour, so fall back to the accent for the others. */
+#sb-main .cm-editor .sb-admonition {
+  border-left-color: var(--admonition-color, var(--au-accent));
+  border-left-width: 3px !important;
+  padding-left: 19px !important;
 }
 #sb-main .cm-editor .sb-line-blockquote:not(.sb-line-blockquote + .sb-line-blockquote) {
   border-top-right-radius: var(--au-radius); padding-top: 10px !important;
